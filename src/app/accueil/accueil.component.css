@@ -1,0 +1,100 @@
+@font-face {
+  font-family: "berkshire_swashregular";
+  src: url("src/assets/font/berkshireswash-regular.eot");
+  src: url("src/assets/font/berkshireswash-regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("src/assets/font/berkshireswash-regular.woff2") format("woff2"),
+    url("src/assets/font/berkshireswash-regular.woff") format("woff"),
+    url("src/assets/font/berkshireswash-regular.ttf") format("truetype"),
+    url("src/assets/font/berkshireswash-regular.svg#berkshire_swashregular")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ralewaythin";
+  src: url("src/assets/font/raleway-variablefont_wght.eot");
+  src: url("src/assets/font/raleway-variablefont_wght.eot?#iefix")
+      format("embedded-opentype"),
+    url("src/assets/font/raleway-variablefont_wght.woff2") format("woff2"),
+    url("src/assets/font/raleway-variablefont_wght.woff") format("woff"),
+    url("src/assets/font/raleway-variablefont_wght.ttf") format("truetype"),
+    url("src/assets/font/raleway-variablefont_wght.svg#ralewaythin")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.text-general {
+  font-family: "raleway-variablefont_wght", Verdana, sans-serif;
+  font-size: medium;
+}
+.main-head {
+  font-family: "berkshire_swashregular", "Times New Roman", Times, serif;
+  text-shadow: 0.05rem 0.05rem 0.1rem grey;
+  text-transform: lowercase;
+}
+
+.allergen {
+  font-style: italic !important;
+}
+
+.product-image-size {
+  height: 20em;
+  width: auto;
+}
+
+.label-size {
+  height: 7em;
+  width: auto;
+}
+
+.palm-oil-label-size {
+  height: 31px;
+  width: auto;
+}
+
+.green-color {
+  background-color: #87bb34;
+}
+
+.orange-color {
+  background-color: #ed7512;
+}
+
+.yellow-color {
+  background-color: #fcf44f;
+}
+
+.button-rechercher {
+  background-color: #ed7512;
+  color: white;
+}
+
+.button-rechercher:hover {
+  background-color: white;
+  border: solid 1px #ed7512;
+  color: #ed7512;
+}
+
+.text-green {
+  color: #87bb34;
+}
+
+a:link {
+  color: #ed7512;
+}
+a:hover {
+  color: #ed7512;
+  font-weight: bold;
+}
+
+a:visited {
+  color: #ed7512;
+  font-style: italic;
+}
+
+.footer {
+  font-size: small;
+}

@@ -1,0 +1,260 @@
+<body class="text-general yellow-color">
+  <header>
+    <div class="container-fluid shadow">
+      <div class="row text-center orange-color text-light">
+        <div class="col main-head mb-2 text-center">
+          <h1 class="main-head mt-1 text-light">
+            <strong>{{ monTitre }}</strong>
+          </h1>
+          <br />
+          {{ monSousTitre }}
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="row mt-3 text-center mx-auto green-color shadow">
+    <div class="col">
+      <div class="mb-3 col-6 mx-auto">
+        <input
+          type="text"
+          class="form-control mt-3 rounded-pill"
+          id="exampleFormControlInput1"
+          placeholder="Saisir un code-barres"
+          [formControl]="champSaisieCodeBarres"
+          (keydown.enter)="rechercherCodeBarres()"
+          autofocus
+          required
+        />
+      </div>
+      <div class="d-grid gap-2 col-2 mx-auto m-1 justify-content-center">
+        <button
+          class="
+            button-rechercher
+            btn
+            rounded-pill
+            border-5
+            mx-auto
+            my-2
+            text-uppercase
+          "
+          type="button"
+          (click)="rechercherCodeBarres()"
+        >
+          <strong> Rechercher</strong>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-sm">
+      <div class="card shadow">
+        <div class="card-body text-center">
+          <h5 class="card-title text-green text-uppercase">
+            <strong>{{ nomProduit }}</strong>
+          </h5>
+          <p>
+            {{ codeBarresProduit }}<br />
+            {{ marqueProduit }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="estAffiche">
+    <div class="row mt-3">
+      <div class="col-sm-6">
+        <div class="card shadow h-100">
+          <div class="card-body mx-auto">
+            <img
+              src="{{ sourceImageProduit }}"
+              alt="Aucune image du produit disponible"
+              class="card-img-top product-image-size img-thumbnail"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card shadow h-100">
+          <div class="card-body">
+            <h5 class="card-title text-green text-uppercase">
+              {{ titreIngredients }}
+            </h5>
+            <p
+              class="card-text text-justify"
+              [innerHTML]="ingredientsProduit"
+            ></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-sm">
+        <div class="card shadow">
+          <div class="card-body">
+            <h5 class="card-title text-green text-uppercase">
+              {{ titreValeursNutritionnelles }}
+            </h5>
+            <table class="table table-sm table-light table-striped">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Pour 100 g ou 100 ml</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Énergie</td>
+                  <td>{{ energieProduit }}</td>
+                </tr>
+                <tr>
+                  <td>Matières grasses</td>
+                  <td>{{ matieresGrassesProduit }}</td>
+                </tr>
+                <tr>
+                  <td>-> dont acides gras saturés</td>
+                  <td>{{ acidesGrasSaturesProduit }}</td>
+                </tr>
+                <tr>
+                  <td>Glucides</td>
+                  <td>{{ glucidesProduit }}</td>
+                </tr>
+                <tr>
+                  <td>-> dont sucres</td>
+                  <td>{{ sucresProduit }}</td>
+                </tr>
+                <tr>
+                  <td>Fibres alimentaires</td>
+                  <td>{{ fibresAlimentairesProduit }}</td>
+                </tr>
+                <tr>
+                  <td>Protéines</td>
+                  <td>{{ proteinesProduit }}</td>
+                </tr>
+                <tr>
+                  <td>Sel</td>
+                  <td>{{ selProduit }}</td>
+                </tr>
+                <tr>
+                  <td>-> dont sodium</td>
+                  <td>{{ sodiumProduit }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="card shadow">
+          <div class="card-body">
+            <h5 class="card-title text-green text-uppercase">
+              {{ titreAllergenes }}
+            </h5>
+            <p class="card-text">
+              {{ allergenes }}
+            </p>
+            <h5 class="card-title text-green text-uppercase">
+              {{ titreConditionnement }}
+            </h5>
+            <p class="card-text">
+              {{ conditionnementProduit }}
+            </p>
+            <h5 class="card-title text-green text-uppercase">
+              {{ titreLieuFabrication }}
+            </h5>
+            <p class="card-text">
+              {{ lieuFabricationProduit }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-sm-4">
+        <div class="card shadow h-100">
+          <div class="card-body mx-auto">
+            <img
+              src="https://static.openfoodfacts.org/images/misc/nova-group-{{
+                sourceImageNova
+              }}.svg"
+              alt="Groupe NOVA inconnu"
+              class="card-img-top label-size"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card shadow h-100">
+          <div class="card-body mx-auto">
+            <img
+              src="https://static.openfoodfacts.org/images/misc/nutriscore-{{
+                sourceImageNutriscore
+              }}.svg"
+              alt="Nutriscore inconnu"
+              class="card-img-top label-size"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card shadow h-100">
+          <div class="card-body my-5 text-center">
+            <img
+              src="../assets/images/from_palm_oil_{{
+                sourceImageHuileDePalme
+              }}.jpg"
+              alt="Avec/sans huile de palme : information inconnue"
+              class="card-img-top palm-oil-label-size"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-sm-4">
+        <div class="card shadow h-100">
+          <div class="card-body">
+            <h5 class="card-title text-green text-uppercase">
+              {{ titreListeLabels }}
+            </h5>
+            <p class="card-text">
+              {{ listeLabelsProduit }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card shadow h-100">
+          <div class="card-body">
+            <h5 class="card-title text-green text-uppercase">
+              {{ titreCategorie }}
+            </h5>
+            <p class="card-text">{{ categorieProduit }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card shadow h-100">
+          <div class="card-body">
+            <h5 class="card-title text-green text-uppercase">
+              {{ titrePays }}
+            </h5>
+            <p class="card-text">
+              {{ paysProduit }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="container-fluid mt-3">
+      <div class="row green-color justify-content-center pt-2">
+        <div class="col-6 text-center">
+          <p class="card-text footer">
+            {{ copyright }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
